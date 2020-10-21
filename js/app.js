@@ -7,16 +7,16 @@ const TIMEOUT = 3*1000
 const ID = Math.floor(Math.random()*1000)
 
 app.get('/', (req,res) =>{
-    res.status(200).send("ping - node" + ID)
+    res.status(200).send("ping - node " + ID)
 })
 
 app.get('/sleep', (req,res) =>{
     setTimeout(() => {
-        res.status(200).send("Sleep")
+        res.status(200).send("timeout - node " + ID)
     }, TIMEOUT)
 })
 
-app.get('/timeout', (req,res) => {
+app.get('/heavy', (req,res) => {
     let start = new Date()
     
     while (new Date() - start <= TIMEOUT){
