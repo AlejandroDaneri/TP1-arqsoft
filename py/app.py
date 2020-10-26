@@ -10,12 +10,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def raiz():
-    return "python - ping " + ID 
+    return "gunicorn - ping " + ID 
 
 @app.route("/sleep")
 def timeout():
     time.sleep(TIMEOUT)
-    return "python - timeout " + ID 
+    return "gunicorn - timeout " + ID 
 
 @app.route("/heavy")
 def intensive():
@@ -24,7 +24,7 @@ def intensive():
     while(datetime.datetime.now() - start <= TIMEOUT):
         pass
 
-    return "python - heavy " + ID 
+    return "gunicorn - heavy " + ID 
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
