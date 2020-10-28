@@ -21,13 +21,13 @@ config:
     - name: Reset
       duration: 20
       arrivalRate: 0
-    - name: Ramp
-      duration: 30
-      arrivalRate: 1
-      rampTo: 3
-    - name: Plain
-      duration: 60
+    - name: Constant
+      duration: 600
       arrivalRate: 3
+    - name: Reset
+      duration: 20
+      arrivalRate: 0
+
 
     
 
