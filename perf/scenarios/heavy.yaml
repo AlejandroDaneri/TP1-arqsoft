@@ -21,14 +21,12 @@ config:
     - name: Reset
       duration: 20
       arrivalRate: 0
-    - name: Ramp
-      duration: 30
-      arrivalRate: 0.5
-      rampTo: 0.7
-    - name: Plain
-      duration: 60
-      arrivalRate: 0.7
-    
+    - name: Constant
+      duration: 600
+      arrivalRate: 1.01
+    - name: Reset
+      duration: 20
+      arrivalRate: 0
 
 scenarios:
   - name: Heavy (/heavy)
