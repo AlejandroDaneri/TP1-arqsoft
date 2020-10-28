@@ -174,7 +174,7 @@ Tuvo un pico de errores en el pico (1/3 del total que se envio). Finalmente la g
       arrivalRate: 0
     - name: Constant
       duration: 600
-      arrivalRate: 1
+      arrivalRate: 1.01
     - name: Reset
       duration: 20
       arrivalRate: 0
