@@ -1,7 +1,6 @@
 from flask import Flask
 import time
 from random import randint
-import datetime
 
 TIMEOUT = 3
 ID = str(randint(1,10000))
@@ -19,9 +18,9 @@ def timeout():
 
 @app.route("/heavy")
 def intensive():
-    start = datetime.datetime.now()
+    start = time.time()
 
-    while(datetime.datetime.now() - start <= TIMEOUT):
+    while(time.time() - start <= TIMEOUT):
         pass
 
     return "gunicorn - heavy " + ID 
