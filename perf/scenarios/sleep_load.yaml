@@ -1,0 +1,112 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node"
+    gunicorn:
+      target: 'http://localhost:5555/gunicorn'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-gunicorn"
+
+  pool: 50 # All HTTP requests from all virtual users will be sent over the same connections
+
+  phases:
+    - name: Plain
+      duration: 20
+      arrivalRate: 0
+    - name: Ramp Up 1
+      duration: 10
+      arrivalRate: 0
+      rampTo: 10
+    - name: Ramp Up 2
+      duration: 10
+      arrivalRate: 10
+      rampTo: 20
+    - name: Ramp Up 3
+      duration: 10
+      arrivalRate: 20
+      rampTo: 30
+    - name: Ramp Up 4
+      duration: 10
+      arrivalRate: 30
+      rampTo: 40
+    - name: Ramp Up 5
+      duration: 10
+      arrivalRate: 40
+      rampTo: 50
+    - name: Ramp Up 6
+      duration: 10
+      arrivalRate: 50
+      rampTo: 60
+    - name: Ramp Up 7
+      duration: 10
+      arrivalRate: 60
+      rampTo: 70
+    - name: Ramp Up 8
+      duration: 10
+      arrivalRate: 70
+      rampTo: 80
+    - name: Ramp Up 9
+      duration: 10
+      arrivalRate: 80
+      rampTo: 90
+    - name: Ramp Up 10
+      duration: 10
+      arrivalRate: 90
+      rampTo: 100
+    - name: Ramp Up 11
+      duration: 10
+      arrivalRate: 100
+      rampTo: 110
+    - name: Ramp Up 12
+      duration: 10
+      arrivalRate: 110
+      rampTo: 120
+    - name: Ramp Up 13
+      duration: 10
+      arrivalRate: 120
+      rampTo: 130
+    - name: Ramp Up 14
+      duration: 10
+      arrivalRate: 130
+      rampTo: 140
+    - name: Ramp Up 15
+      duration: 10
+      arrivalRate: 140
+      rampTo: 150
+    - name: Ramp Up 16
+      duration: 10
+      arrivalRate: 150
+      rampTo: 160
+    - name: Ramp Up 17
+      duration: 10
+      arrivalRate: 160
+      rampTo: 170
+    - name: Ramp Up 18
+      duration: 10
+      arrivalRate: 170
+      rampTo: 180
+    - name: Ramp Up 19
+      duration: 10
+      arrivalRate: 180
+      rampTo: 190
+    - name: Ramp Up 20
+      duration: 10
+      arrivalRate: 180
+      rampTo: 200
+    - name: Plain
+      duration: 20
+      arrivalRate: 0
+
+scenarios:
+  - name: Sleep (/sleep)
+    flow:
+      - get:
+          url: '/sleep'
