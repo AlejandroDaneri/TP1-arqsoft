@@ -22,8 +22,8 @@ config:
         duration: 20
         arrivalRate: 0
       - name: Ramp
-        duration: 60
-        arrivalRate: 1
+        duration: 120
+        arrivalRate: 0
         rampTo: 20
       - name: Reset
         duration: 20
