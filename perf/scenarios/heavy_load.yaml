@@ -1,0 +1,73 @@
+config:
+    environments:
+      node:
+        target: 'http://localhost:5555/node/'
+        plugins:
+          statsd:
+            host: localhost
+            port: 8125
+            prefix: "artillery-node"
+      node_replicated:
+        target: 'http://localhost:5555/node_replicated/'
+        plugins:
+          statsd:
+            host: localhost
+            port: 8125
+            prefix: "artillery-node-replicated"
+      gunicorn:
+        target: 'http://localhost:5555/gunicorn/'
+        plugins:
+          statsd:
+            host: localhost
+            port: 8125
+            prefix: "artillery-gunicorn"
+  
+    pool: 50
+  
+    phases:
+    - name: Ramp_1
+      duration: 10
+      arrivalRate: 0 
+      rampTo: 10
+    - name: Ramp_2
+      duration: 10
+      arrivalRate: 10 
+      rampTo: 20
+    - name: Ramp_3
+      duration: 10
+      arrivalRate: 20 
+      rampTo: 30
+    - name: Ramp_4
+      duration: 10
+      arrivalRate: 30 
+      rampTo: 40
+    - name: Ramp_5
+      duration: 10
+      arrivalRate: 40 
+      rampTo: 50
+    - name: Ramp_6
+      duration: 10
+      arrivalRate: 50 
+      rampTo: 60
+    - name: Ramp_7
+      duration: 10
+      arrivalRate: 60 
+      rampTo: 70
+    - name: Ramp_8
+      duration: 10
+      arrivalRate: 70 
+      rampTo: 80
+    - name: Ramp_9
+      duration: 10
+      arrivalRate: 80 
+      rampTo: 90
+    - name: Ramp_10
+      duration: 10
+      arrivalRate: 90 
+      rampTo: 100
+  
+scenarios:
+    - name: Heavy (/heavy)
+      flow:
+        - get:
+            url: '/heavy'
