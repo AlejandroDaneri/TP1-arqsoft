@@ -1,0 +1,61 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node"
+    node_replicated:
+      target: 'http://localhost:5555/node_replicated'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node-replicated"
+
+  pool: 50 # All HTTP requests from all virtual users will be sent over the same connections
+
+  phases:
+    - name: Plain
+      duration: 20
+      arrivalRate: 0
+    - name: Plain
+      duration: 20
+      arrivalRate: 10
+    - name: Spike Up 1
+      duration: 10
+      arrivalRate: 10
+      rampTo: 170
+    - name: Plain 1
+      duration: 10
+      arrivalRate: 170
+    - name: Spike Down 1
+      duration: 10
+      arrivalRate: 170
+      rampTo: 10
+    - name: Plain
+      duration: 20
+      arrivalRate: 10
+    - name: Spike Up 2
+      duration: 10
+      arrivalRate: 10
+      rampTo: 170
+    - name: Plain 2
+      duration: 10
+      arrivalRate: 170
+    - name: Spike Down 2
+      duration: 10
+      arrivalRate: 170
+      rampTo: 10
+    - name: Plain
+      duration: 20
+      arrivalRate: 0
+
+
+scenarios:
+  - name: Sleep (/sleep)
+    flow:
+      - get:
+          url: '/sleep'
