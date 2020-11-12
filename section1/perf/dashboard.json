@@ -439,7 +439,7 @@
           "hide": false,
           "refCount": 0,
           "refId": "C",
-          "target": "alias(removeBelowValue(asPercent(derivative(keepLastValue(stats.gauges.cadvisor.$container.cpu_cumulative_usage, 100)), 10000000000), 0.0001), 'CPU')",
+          "target": "alias(removeBelowValue(asPercent(derivative(keepLastValue(stats.gauges.cadvisor.$container.cpu_cumulative_usage, 100)), 2000000000), 0.0001), 'CPU')",
           "textEditor": false
         },
         {
@@ -452,7 +452,7 @@
           "hide": false,
           "refCount": 0,
           "refId": "B",
-          "target": "alias(asPercent(stats.gauges.cadvisor.$container.memory_working_set, 10737418240), 'Memory')"
+          "target": "alias(asPercent(stats.gauges.cadvisor.$container.memory_working_set, 8589934592), 'Memory')"
         }
       ],
       "thresholds": [],
