@@ -1,0 +1,43 @@
+
+config:
+    environments:
+      node:
+        target: 'http://localhost:5555/node/'
+        plugins:
+          statsd:
+            host: localhost
+            port: 8125
+            prefix: "artillery-node"
+      node_replicated:
+        target: 'http://localhost:5555/node_replicated/'
+        plugins:
+          statsd:
+            host: localhost
+            port: 8125
+            prefix: "artillery-node-replicated"
+      gunicorn:
+        target: 'http://localhost:5555/gunicorn/'
+        plugins:
+          statsd:
+            host: localhost
+            port: 8125
+            prefix: "artillery-gunicorn"
+  
+    pool: 50
+  
+    phases:
+    - name: Reset
+      duration: 20
+      arrivalRate: 0
+    - name: Constant
+      duration: 300
+      arrivalRate: 10
+    - name: Reset
+      duration: 20
+      arrivalRate: 0
+  
+scenarios:
+    - name: Sleep (/sleep)
+      flow:
+        - get:
+            url: '/sleep'
