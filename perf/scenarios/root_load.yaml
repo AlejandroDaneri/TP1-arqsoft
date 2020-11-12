@@ -108,12 +108,52 @@ config:
       duration: 10
       arrivalRate: 190
       rampTo: 200
+    - name: Ramp Up 21
+      duration: 10
+      arrivalRate: 200
+      rampTo: 210
+    - name: Ramp Up 22
+      duration: 10
+      arrivalRate: 210
+      rampTo: 220
+    - name: Ramp Up 23
+      duration: 10
+      arrivalRate: 220
+      rampTo: 230
+    - name: Ramp Up 24
+      duration: 10
+      arrivalRate: 230
+      rampTo: 240
+    - name: Ramp Up 215
+      duration: 10
+      arrivalRate: 240
+      rampTo: 250
+    - name: Ramp Up 26
+      duration: 10
+      arrivalRate: 250
+      rampTo: 260
+    - name: Ramp Up 27
+      duration: 10
+      arrivalRate: 260
+      rampTo: 270
+    - name: Ramp Up 28
+      duration: 10
+      arrivalRate: 270
+      rampTo: 280
+    - name: Ramp Up 29
+      duration: 10
+      arrivalRate: 280
+      rampTo: 290
+    - name: Ramp Up 30
+      duration: 10
+      arrivalRate: 290
+      rampTo: 300
     - name: Plain
       duration: 20
       arrivalRate: 0
 
 scenarios:
-  - name: Sleep (/sleep)
+  - name: Root (/)
     flow:
       - get:
-          url: '/sleep'
+          url: '/'
