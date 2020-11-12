@@ -21,6 +21,13 @@ config:
             host: localhost
             port: 8125
             prefix: "artillery-gunicorn"
+      gunicornx3:
+        target: 'http://localhost:5555/gunicorn2'
+        plugins:
+          statsd:
+            host: localhost
+            port: 8125
+            prefix: "artillery-gunicorn2"
   
     pool: 50
   

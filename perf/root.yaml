@@ -14,10 +14,20 @@ config:
           host: localhost
           port: 8125
           prefix: "artillery-gunicorn"
+    gunicorn2:
+      target: 'http://localhost:5555/gunicorn2'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-gunicorn2"
 
   pool: 50 # All HTTP requests from all virtual users will be sent over the same connections
 
   phases:
+    - name: Reset
+      duration: 20
+      arrivalRate: 0
     - name: Ramp
       duration: 30
       arrivalRate: 5
@@ -25,7 +35,9 @@ config:
     - name: Plain
       duration: 120
       arrivalRate: 30
-    
+    - name: Reset
+      duration: 20
+      arrivalRate: 0
 
 scenarios:
   - name: Root (/)

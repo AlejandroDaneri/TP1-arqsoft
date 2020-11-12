@@ -529,9 +529,14 @@
             "selected": false,
             "text": "artillery-node-replicated",
             "value": "artillery-node-replicated"
+          },
+          {
+            "selected": false,
+            "text": "artillery-gunicorn2",
+            "value": "artillery-gunicorn2"
           }
         ],
-        "query": "artillery-node, artillery-gunicorn,artillery-node-replicated",
+        "query": "artillery-node, artillery-gunicorn, artillery-node-replicated,artillery-gunicorn2",
         "skipUrlSync": false,
         "type": "custom"
       },
@@ -584,11 +589,16 @@
           },
           {
             "selected": false,
+            "text": "tp1arqsoft_gunicorn2_1",
+            "value": "tp1arqsoft_gunicorn2_1"
+          },
+          {
+            "selected": false,
             "text": "tp1arqsoft_nginx_1",
             "value": "tp1arqsoft_nginx_1"
           }
         ],
-        "query": "tp1arqsoft_node_1, tp1arqsoft_node_2, tp1arqsoft_node_3, tp1arqsoft_cadvisor_1, tp1arqsoft_grafana_1, tp1arqsoft_graphite_1, tp1arqsoft_gunicorn_1, tp1arqsoft_nginx_1",
+        "query": "tp1arqsoft_node_1, tp1arqsoft_node_2, tp1arqsoft_node_3, tp1arqsoft_cadvisor_1, tp1arqsoft_grafana_1, tp1arqsoft_graphite_1, tp1arqsoft_gunicorn_1, tp1arqsoft_nginx_1,tp1arqsoft_gunicorn2_1",
         "skipUrlSync": false,
         "type": "custom"
       }

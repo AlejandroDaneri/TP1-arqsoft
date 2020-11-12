@@ -9,6 +9,11 @@ services:
         build:
             ./py
 
+    gunicorn2:
+        build: 
+            context: ./py
+            dockerfile: Dockerfile2
+
     nginx:
         image: nginx:1.18.0
         ports:
